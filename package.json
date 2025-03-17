@@ -14,7 +14,8 @@
     "postinstall": "prisma generate"
   },
   "prisma": {
-    "seed": "ts-node --compiler-options {\"module\":\"CommonJS\"} src/prisma/seed.ts"
+    "seed": "ts-node --compiler-options {\"module\":\"CommonJS\"} src/prisma/seed.ts",
+    "schema": "src/prisma/schema.prisma"
   },
   "dependencies": {
     "@hookform/resolvers": "^4.1.0",
