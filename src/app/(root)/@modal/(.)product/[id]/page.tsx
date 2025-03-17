@@ -13,9 +13,10 @@ export default async function ProductModalPage({ params }: { params: { id: strin
           ingredients: true
         }
       });
-      
+
       if (product) return <ChooseModalProduct product={product} />
     } catch (error) {
+      console.error("[RENDER MODAL PRODUCT] error: ", error);
       return <div>Ошибка при получении продукта!</div>
     }
   } else {

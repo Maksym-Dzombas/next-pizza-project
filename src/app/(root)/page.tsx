@@ -5,7 +5,6 @@ import { Stories } from "@/components/shared/stories";
 import { Title } from "@/components/shared/title";
 import { TopBar } from "@/components/shared/top-bar";
 import { findPizzasOnSorting, GetSearchParams } from "@/lib/find-pizzas-on-sorting";
-import { prisma } from "@/prisma/prisma-client";
 
 export default async function Home({ searchParams }: { searchParams: GetSearchParams }) {
   const categories = await findPizzasOnSorting(searchParams);

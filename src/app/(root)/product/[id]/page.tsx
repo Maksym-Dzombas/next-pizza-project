@@ -1,8 +1,5 @@
 import { Container } from '@/components/shared/container'
-import { GroupVariants } from '@/components/shared/group-variants'
-import { PizzaImage } from '@/components/shared/pizza-image'
 import { ProductForm } from '@/components/shared/product-form'
-import { Title } from '@/components/shared/title'
 import { prisma } from '@/prisma/prisma-client'
 import { notFound } from 'next/navigation'
 import React from 'react'

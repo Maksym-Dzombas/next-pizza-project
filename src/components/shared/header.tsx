@@ -9,7 +9,7 @@ import Link from 'next/link'
 import { CartButton } from './cart-button'
 import { useRouter, useSearchParams } from 'next/navigation'
 import toast from 'react-hot-toast'
-import { useSession, signIn } from 'next-auth/react'
+import { useSession } from 'next-auth/react'
 import { ProfileButton } from './profile-button';
 import { AuthModal } from './auth-modal/auth-modal'
 

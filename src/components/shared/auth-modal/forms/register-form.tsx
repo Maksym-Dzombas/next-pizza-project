@@ -6,7 +6,6 @@ import { Title } from '../../title'
 import { FormInput } from '../../form-components'
 import { Button } from '@/components/ui'
 import toast from 'react-hot-toast'
-import { signIn } from 'next-auth/react'
 import { registerUser } from '../../../../../actions'
 
 type Props = {

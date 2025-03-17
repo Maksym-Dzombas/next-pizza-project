@@ -6,8 +6,6 @@ import Link from 'next/link';
 import React from 'react';
 import { useClickAway, useDebounce } from 'react-use';
 import ApiClient from '../../../services/api-client';
-import { Product } from '@prisma/client';
-import { ProductWithRelations } from '../../../@types/prisma';
 
 type Props = {
   className?: string

@@ -1,6 +1,5 @@
 import { prisma } from "@/prisma/prisma-client";
 import { calcCartItemTotalPrice } from "./calc-cart-item-total-price";
-import { NextResponse } from "next/server";
 
 export const updateCartTotalAmount = async (cartToken: string) => {
   const userCart = await prisma.cart.findFirst({

@@ -5,7 +5,6 @@ import { ProductWithRelations } from "../../../@types/prisma";
 import { ChoosePizzaForm } from "./choose-pizza-form";
 import { useCartStore } from "../../../store/cart";
 import { ChooseProductForm } from "./choose-product-form";
-import { AppRouterInstance } from "next/dist/shared/lib/app-router-context.shared-runtime";
 
 interface ProductForm {
   product: ProductWithRelations

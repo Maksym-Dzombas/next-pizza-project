@@ -19,7 +19,7 @@ type Props = {
 
 export const ProductsGroupList: React.FC<Props> = ({ categoryNames, products, categoryId, className, scrollId }) => {
   const setActiveCategoryId = useCategoryStore(state => state.setActiveId);
-  const intersectionRef = React.useRef();
+  const intersectionRef = React.useRef<HTMLDivElement>(null) as React.RefObject<HTMLDivElement>;
   const intersection = useIntersection(intersectionRef, {
     threshold: 0.7
   })
