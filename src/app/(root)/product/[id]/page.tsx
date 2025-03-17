@@ -4,13 +4,13 @@ import { prisma } from '@/prisma/prisma-client'
 import { notFound } from 'next/navigation'
 import React from 'react'
 
-type Props = {
-  params: {
+interface PageProps {
+  params: Promise<{
     id: string
-  }
+  }>
 }
 
-const ProductPage = async ({ params }: Props) => {
+const ProductPage = async ({ params }: PageProps) => {
   const { id } = await params;
   const product = await prisma.product.findFirst({ where: { id: Number(id) }, include: { ingredients: true, variations: true } });
 

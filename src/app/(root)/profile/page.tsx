@@ -4,9 +4,7 @@ import { prisma } from '@/prisma/prisma-client';
 import { redirect } from 'next/navigation';
 import React from 'react'
 
-type Props = {}
-
-const ProfilePage = async ({ }: Props) => {
+const ProfilePage = async () => {
   const userSession = await getUserSession();
 
   if (!userSession) {

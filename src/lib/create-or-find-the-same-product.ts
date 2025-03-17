@@ -46,8 +46,8 @@ export const createOrFindTheSameProduct = async (cart: Cart, dataFrontend: Creat
         }
       })
     }
-  } catch (error: any) {
-    console.log("[CREATE_OR_FIND_PRODUCT]", error.message);
+  } catch (error) {
+    console.error("[CREATE_OR_FIND_PRODUCT] Error: ", error);
     console.log("Не удалось создать или обновить существующие продукты в корзине");
   }
 }

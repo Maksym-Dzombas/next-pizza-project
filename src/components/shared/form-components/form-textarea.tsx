@@ -13,7 +13,7 @@ interface Props {
   className?: string
 }
 
-export const FormTextarea: React.FC<Props> = ({ name, label, required, rows, placeholder, className, ...props }) => {
+export const FormTextarea: React.FC<Props> = ({ name, label, required, rows, placeholder, ...props }) => {
   const { register, formState: { errors }, watch, setValue } = useFormContext();
   const errorText = errors?.[name]?.message as string;
   const text = watch(name);

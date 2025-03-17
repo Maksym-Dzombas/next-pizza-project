@@ -18,7 +18,7 @@ type Props = {
 
 export const ChooseProductForm: React.FC<Props> = ({ isProductPage, loading, name, price, imageUrl, variations, className, onClickAddCart }) => {
   const isLoadingAddToCart = useCartStore(state => state.loading);
-  let isSuccessAddProduct = useCartStore(state => state.isSuccessAddProduct);
+  // let isSuccessAddProduct = useCartStore(state => state.isSuccessAddProduct);
 
   const handleClickAdd = () => {
     onClickAddCart(variations[0].id);

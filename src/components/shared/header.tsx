@@ -9,7 +9,6 @@ import Link from 'next/link'
 import { CartButton } from './cart-button'
 import { useRouter, useSearchParams } from 'next/navigation'
 import toast from 'react-hot-toast'
-import { useSession } from 'next-auth/react'
 import { ProfileButton } from './profile-button';
 import { AuthModal } from './auth-modal/auth-modal'
 
@@ -20,7 +19,7 @@ type Props = {
 }
 
 export const Header: React.FC<Props> = ({ className, hasSearch = true, hasCart = true }) => {
-  const { data: session } = useSession();
+  // const { data: session } = useSession();
   const [modalOpen, setModalOpen] = React.useState(false);
   const searchParams = useSearchParams();
   const router = useRouter();

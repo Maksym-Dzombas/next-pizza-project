@@ -7,7 +7,7 @@ interface PriceDetails {
   className?: string
 }
 
-export const PriceDetails: React.FC<PriceDetails> = ({ title, value, className, icon }) => {
+export const PriceDetails: React.FC<PriceDetails> = ({ title, value, icon }) => {
   return (
     <div className="flex items-center my-4">
       {icon}

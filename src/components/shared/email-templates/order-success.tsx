@@ -1,5 +1,4 @@
 import React from "react";
-import { Title } from "@/components/shared/title";
 import { CartItemDTO } from "../../../../services/dto/cart.dto";
 
 interface Props {

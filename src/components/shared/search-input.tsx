@@ -6,6 +6,8 @@ import Link from 'next/link';
 import React from 'react';
 import { useClickAway, useDebounce } from 'react-use';
 import ApiClient from '../../../services/api-client';
+import { ProductWithRelations } from '../../../@types/prisma';
+import { ProductVariation } from '@prisma/client';
 
 type Props = {
   className?: string
@@ -13,7 +15,7 @@ type Props = {
 
 export const SearchInput: React.FC<Props> = ({ className }) => {
   const [searchValue, setSearchValue] = React.useState("");
-  const [products, setProducts] = React.useState<any[]>([]);
+  const [products, setProducts] = React.useState<ProductWithRelations[]>([]);
   const [focused, setFocused] = React.useState(false);
   const ref = React.useRef(null);
 
@@ -27,7 +29,7 @@ export const SearchInput: React.FC<Props> = ({ className }) => {
   });
 
   useDebounce(() => {
-    ApiClient.products.search(searchValue).then((products) => setProducts(products));
+    ApiClient.products.search(searchValue).then((products) => setProducts(products as ProductWithRelations[]));
   }, 300, [searchValue]);
 
   return (
@@ -43,7 +45,7 @@ export const SearchInput: React.FC<Props> = ({ className }) => {
               <Link onClick={onClickItem} key={product.id} className='flex items-center rounded-sm gap-3 hover:bg-primary/30 duration-100 p-1 pr-3' href={"/product/" + product.id}>
                 <img className='w-14 h-14 object-cover rounded-2xl' src={product.imageUrl} alt={product.name} />
                 <span>{product.name}</span>
-                <span className='ml-auto font-bold'>от {product.variations.map((variation: any) => Math.min(variation.price))} ₽</span>
+                <span className='ml-auto font-bold'>от {product.variations.map((variation: ProductVariation) => Math.min(variation.price))} ₽</span>
               </Link>
             )) : <p>Подобных продуктов не найдено :(</p>
           }

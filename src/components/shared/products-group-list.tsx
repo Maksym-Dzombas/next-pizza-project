@@ -11,13 +11,13 @@ import { ProductWithRelations } from '../../../@types/prisma';
 
 type Props = {
   scrollId: string
-  products: any[]
+  products: ProductWithRelations[]
   categoryId: number
   categoryNames: Category
   className?: string
 }
 
-export const ProductsGroupList: React.FC<Props> = ({ categoryNames, products, categoryId, className, scrollId }) => {
+export const ProductsGroupList: React.FC<Props> = ({ categoryNames, products, categoryId, className }) => {
   const setActiveCategoryId = useCategoryStore(state => state.setActiveId);
   const intersectionRef = React.useRef<HTMLDivElement>(null) as React.RefObject<HTMLDivElement>;
   const intersection = useIntersection(intersectionRef, {
@@ -34,7 +34,7 @@ export const ProductsGroupList: React.FC<Props> = ({ categoryNames, products, ca
     <div className={cn("mb-20", className)} ref={intersectionRef} id={String(categoryNames.name)}>
       <Title text={categoryNames.name} size='lg' className='font-extrabold mb-5' />
       <div className={"grid grid-cols-3 gap-[50px]"}>
-        {products.map((product: ProductWithRelations, index) => (
+        {products.map((product, index) => (
           <ProductCard ingredients={product.ingredients.map(ingredient => ingredient.name).join(", ")} key={product.name + `-${index}`} id={product.id} name={product.name} imageUrl={product.imageUrl} price={Math.min(...product.variations.map((variationProduct: ProductVariation) => variationProduct.price))} />
         ))}
       </div>

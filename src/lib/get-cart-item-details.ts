@@ -1,4 +1,3 @@
-import { Ingredient } from "@prisma/client";
 import { PizzaSize, PizzaType } from "../../@types/pizza";
 import { mapPizzaType } from "../../constants/pizza";
 

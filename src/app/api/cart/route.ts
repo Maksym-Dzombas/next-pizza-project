@@ -5,9 +5,8 @@ import { CreateCartItemData } from "../../../../services/dto/cart.dto";
 import { updateCartTotalAmount } from "@/lib/update-cart-total-amount";
 import { createOrFindTheSameProduct } from "@/lib/create-or-find-the-same-product";
 
-export async function GET(req: NextRequest, res: NextResponse) {
+export async function GET(req: NextRequest) {
   try {
-    const userId = 1;
     const token = req.cookies.get("cartToken")?.value;
 
     if (!token) {
@@ -53,8 +52,8 @@ export async function POST(req: NextRequest) {
     const response = NextResponse.json(updatedUserCart);
     response.cookies.set("cartToken", cartToken);
     return response;
-  } catch (error: any) {
-    console.log("[CART_POST] Server error", error.message);
+  } catch (error) {
+    console.log("[CART_POST] Server error", error);
     return NextResponse.json({ message: "Не удалось добавить товар", status: 500 });
   }
 }

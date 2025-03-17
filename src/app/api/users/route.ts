@@ -10,7 +10,7 @@ export const GET = async () => {
   });
 }
 
-export const POST = async (req: NextRequest, res: NextResponse) => {
+export const POST = async (req: NextRequest) => {
   try {
     const data = await req.json();
 
@@ -22,8 +22,8 @@ export const POST = async (req: NextRequest, res: NextResponse) => {
       user: user,
       message: "Успешное создание пользователя"
     });
-  } catch (error: any) {
-    if (error.code === "P2002") {
+  } catch (error) {
+    if ((error as { code?: string }).code === "P2002") {
       return NextResponse.json({
         message: "Такой пользователь уже существует"
       })

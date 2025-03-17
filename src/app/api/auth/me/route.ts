@@ -25,6 +25,6 @@ export const GET = async () => {
 
     return NextResponse.json(data); 
   } catch (error) {
-
+    console.error("[GET USER] Error: ", error);
   }
 }

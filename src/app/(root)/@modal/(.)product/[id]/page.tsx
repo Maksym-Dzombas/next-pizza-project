@@ -2,7 +2,11 @@ import { ChooseModalProduct } from "@/components/shared/modal/choose-modal-produ
 import { prisma } from "@/prisma/prisma-client";
 import React from "react";
 
-export default async function ProductModalPage({ params }: { params: { id: string } }) {
+interface PageProps {
+  params: Promise<{ id: string }>
+}
+
+export default async function ProductModalPage({ params }: PageProps) {
   const { id } = await params || { id: 0 };
 
   if (id) {

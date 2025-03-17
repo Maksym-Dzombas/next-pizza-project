@@ -20,7 +20,7 @@ const pizzaSizesMap: Record<number, number> = {
 const DEFAULT_MIN_PRICE = 0;
 const DEFAULT_MAX_PRICE = 1000;
 
-export const findPizzasOnSorting = async (searchParams: GetSearchParams) => {
+export const findPizzasOnSorting = async (searchParams: Promise<GetSearchParams>) => {
   const searchParamsAwait = await searchParams;
   const sizes = searchParamsAwait.sizes?.split(",").map(pizzaSize => pizzaSizesMap[Number(pizzaSize)]);
   const pizzaTypes = searchParamsAwait.pizzaTypes?.split(",").map(Number);

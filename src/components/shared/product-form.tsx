@@ -13,7 +13,7 @@ interface ProductForm {
   className?: string
 }
 
-export const ProductForm: React.FC<ProductForm> = ({ product, router, isProductPage, className }) => {
+export const ProductForm: React.FC<ProductForm> = ({ product, router, isProductPage }) => {
   const isPizza = product.variations.filter((variation => variation.pizzaType !== null && variation.pizzaType !== undefined));
   const addCartItem = useCartStore(state => state.addCartItem);
   const loading = useCartStore(state => state.loading);
@@ -26,12 +26,12 @@ export const ProductForm: React.FC<ProductForm> = ({ product, router, isProductP
       })
 
       setTimeout(() => {
-        ``
         toast.success(isPizza.length > 0 ? `Пицца "${product.name}" успешно добавлена в корзину!` : `Продукт "${product.name}" успешно добавлен в корзину!`);
 
         if (router) router();
       }, 3600);
     } catch (error) {
+      console.error("[ADD TO CART] Error: ", error);
       toast.error(`Не удалось добавить "${product.name}" в корзину :(`);
     }
   }

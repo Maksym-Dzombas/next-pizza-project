@@ -6,7 +6,11 @@ import { Title } from "@/components/shared/title";
 import { TopBar } from "@/components/shared/top-bar";
 import { findPizzasOnSorting, GetSearchParams } from "@/lib/find-pizzas-on-sorting";
 
-export default async function Home({ searchParams }: { searchParams: GetSearchParams }) {
+interface PageProps {
+  searchParams: Promise<GetSearchParams>
+}
+
+export default async function Home({ searchParams }: PageProps) {
   const categories = await findPizzasOnSorting(searchParams);
   const categoryNames = categories.filter((category) => category.products.length > 0).map(category => ({ id: category.id, name: category.name }));
 
@@ -24,7 +28,7 @@ export default async function Home({ searchParams }: { searchParams: GetSearchPa
         <div>
           {
             categories.map(category => category.products.length > 0 && (
-              <ProductsGroupList categoryNames={{ id: category.id, name: category.name }} products={category.products} scrollId={category.name} categoryId={category.id} />
+              <ProductsGroupList key={category.name} categoryNames={{ id: category.id, name: category.name }} products={category.products} scrollId={category.name} categoryId={category.id} />
             ))
           }
         </div>

@@ -18,8 +18,8 @@ type Props = {
   children?: React.ReactNode
 }
 
-export const CartDrawer: React.FC<Props> = ({ className, children }) => {
-  const { totalAmount, items, loading, updateItemQuantity, removeCartItem } = useCart();
+export const CartDrawer: React.FC<Props> = ({ children }) => {
+  const { totalAmount, items, updateItemQuantity, removeCartItem } = useCart();
 
   const updateQuantity = (id: number, quantity: number, type: "plus" | "minus") => {
     const newQuantity = type === "plus" ? quantity + 1 : quantity - 1;
@@ -67,6 +67,7 @@ export const CartDrawer: React.FC<Props> = ({ className, children }) => {
                         toast.success("Товар был полностью удалён из корзины");
                       }, 3600);
                     } catch (error) {
+                      console.error("[DELETE ITEM] Error: ", error);
                       toast.error("Не удалось удалить товар из корзины :(");
                     }
                   }}

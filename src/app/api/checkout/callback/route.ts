@@ -6,7 +6,7 @@ import { sendEmail } from "@/lib/send-email";
 import { OrderSuccessEmail } from "@/components/shared/email-templates/order-success";
 import { OrderCancelEmail } from "@/components/shared/email-templates/order-cancel";
 
-export const POST = async (req: Request, res: Response) => {
+export const POST = async (req: Request) => {
   try {
     const body = await req.json() as PaymentCallbackData;
     const orderId = Number(body.object.metadata.order_id);

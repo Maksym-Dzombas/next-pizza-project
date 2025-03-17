@@ -8,7 +8,7 @@ import { sendEmail } from "@/lib/send-email";
 import { PayOrderEmail } from "@/components/shared/email-templates/pay-order";
 import { createPayment } from "@/lib/create-payment";
 import { getServerSession } from "next-auth";
-import { authOptions } from "@/app/api/auth/[...nextauth]/route";
+import { authOptions } from "./constants/auth-options";
 import { hashSync } from "bcryptjs";
 import { VerificationUserEmail } from "@/components/shared/email-templates/verification-user";
 
@@ -179,7 +179,7 @@ export const registerUser = async (data: Prisma.UserCreateInput) => {
 
     await sendEmail(createdUser.email, "Next Pizza / Верификация аккаунта", await VerificationUserEmail({ code: code }));
 
-    
+
   } catch (errror) {
     console.error("[REGISTER USER]: ", errror);
   }

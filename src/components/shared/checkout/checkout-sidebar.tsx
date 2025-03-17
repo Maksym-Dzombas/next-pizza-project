@@ -1,7 +1,7 @@
 import { Button, Skeleton } from "@/components/ui"
 import { PriceDetails } from "./price-details"
 import { WhiteBlock } from "./white-block"
-import { ArrowRight, Car, Loader, Package, Percent } from "lucide-react"
+import { ArrowRight, Car, Package, Percent } from "lucide-react"
 
 interface Props {
   DELIVERY_PRICE: number

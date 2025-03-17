@@ -17,7 +17,7 @@ interface Props {
 
 export const CheckoutCart: React.FC<Props> = ({ items, loading, updateQuantity, removeCartItem, contentClassName, className }) => {
   return (
-    <WhiteBlock className="max-h-[45%]" contentClassName="flex flex-col gap-5 overflow-y-scroll overflow-x-hidden max-h-[87%]" title="1. Корзина">
+    <WhiteBlock className={cn("max-h-[45%]", className)} contentClassName={cn("flex flex-col gap-5 overflow-y-scroll overflow-x-hidden max-h-[87%]", contentClassName)} title="1. Корзина">
       {items.length > 0 ? items.map(item => (
         <CheckoutProductItem key={item.id} id={1}
           imageUrl={item.imageUrl}
