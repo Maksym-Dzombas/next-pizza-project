@@ -9,7 +9,7 @@ interface Props {
   onChange?: (value?: string) => void
 }
 
-const API_KEY_DADATA = process.env.NEXT_PUBLIC_API_KEY_DADATA || "";
+const API_KEY_DADATA = process.env.API_KEY_DADATA || "";
 
 export const AdressInput: React.FC<Props> = ({ error, errorText, onChange }) => {
   return (

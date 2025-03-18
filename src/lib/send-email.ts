@@ -1,7 +1,7 @@
 import { ReactNode } from "react";
 import { Resend } from "resend";
 
-const resend = new Resend(process.env.NEXT_PUBLIC_API_KEY_RESEND);
+const resend = new Resend(process.env.API_KEY_RESEND);
 
 export const sendEmail = async (to: string, subject: string, reactTemplate: ReactNode) => {
   try {
