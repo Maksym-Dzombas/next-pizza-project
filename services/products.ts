@@ -1,5 +1,5 @@
 import { Product } from "@prisma/client"
-import { instanceAxios } from "./instance"
+import { instanceAxios } from "./instanceAxios"
 import { ApiRoutes } from "./constants";
 
 export const search = async (query: string) => {

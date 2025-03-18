@@ -1,4 +1,4 @@
-import { instanceAxios } from "./instance"
+import { instanceAxios } from "./instanceAxios"
 import { CartDTO, CreateCartItemData } from "./dto/cart.dto";
 
 export const getCart = async (): Promise<CartDTO> => {
