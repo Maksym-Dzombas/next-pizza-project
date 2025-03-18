@@ -22,7 +22,6 @@ export * from "./products-group-list";
 export * from "./range-slider";
 export * from "./required-symbol";
 export * from "./search-input";
-export * from "./sort-popup";
 export * from "./title";
 export * from "./top-bar";
 export * from "./profile-button";
